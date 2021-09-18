@@ -1,0 +1,45 @@
+<h1>Cadastro de pessoas</h1>
+
+<a href="/user"><button type="button" name="button" class="btn btn-success">Inserir nome!</button></a>
+
+<div class="card mt-4">
+  <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+     {{#each nome}}
+          <tbody>
+          <th></th>
+          <td>{{nome}}</td>
+          <td>{{sobrenome}}</td>
+          <td>
+            <a href="/edit/{{_id}}"><button type="button" class="btn btn-success btn-sm mt-2" name="button">Editar</button></a>
+          </td>
+          <td>
+            <form class="" action="/deletar" method="POST">
+              <input type="hidden" name="id" value="{{_id}}">
+              <button type="submit" class="btn btn-danger btn-sm mt-2" name="excluir">Deletar</button>
+            </form>
+          </td>
+        </tbody>
+
+
+    {{else}}
+    <tbody>
+      <th></th>
+      <th> Nenhum nome inserido! </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tbody>
+    {{/each}}
+  </table>
+  </div>
+</div>
